@@ -8,6 +8,7 @@ const vs = "/api/v1/airbnb";
 router.get(vs + "/all-properties", airbnbCtr.consultarAirbnb);
 router.get(vs + "/types", airbnbCtr.tiposPropiedades);
 router.get(vs + "/reviews", airbnbCtr.consultarTop20Reviews);
+router.get(vs + "/beds/:nro_beds", airbnbCtr.consultarTopCamas);
 
 module.exports = router;
 

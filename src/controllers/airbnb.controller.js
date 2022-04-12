@@ -1,6 +1,6 @@
 
 // Importar los servicio
-const { consultarDocumentos, consultarTipoPropiedad, reviewsTop20 } = require('../services/mongodb.service');
+const { consultarDocumentos, consultarTipoPropiedad, reviewsTop20, topCamas} = require('../services/mongodb.service');
 
 
 const consultarAirbnb = async (req, res) => {
@@ -54,8 +54,28 @@ const consultarTop20Reviews = async (req, res) => {
     }
 }
 
+const consultarTopCamas = async (req, res) => {
+    let respuesta = {};
+    try {
+        let limite = req.params['nro_beds'];
+        respuesta.ok = true;
+        respuesta.message = "Propiedades consultadas";
+        let resultado = await topCamas(process.env.COLLECTION_AIRBNB, limite);
+        respuesta.info = resultado;
+        res.send(respuesta);
+    } catch (error) {
+        console.log(error);
+        respuesta.ok = false;
+        respuesta.message = "Ha ocurrido un error consultando las propiedades.";
+        respuesta.info = error;
+        res.status(500).send(respuesta);
+    }
+}
+
+
 module.exports = {
     consultarAirbnb,
     tiposPropiedades,
-    consultarTop20Reviews
+    consultarTop20Reviews,
+    consultarTopCamas
 }
