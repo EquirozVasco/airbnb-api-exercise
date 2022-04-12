@@ -1,14 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const airbnbCtr = require("../controllers/airbnb.controller")
+const airbnbCtr = require("../controllers/airbnb.controller");
 
-const vs = "/api/v1"
+const vs = "/api/v1/airbnb";
 
-router.get(vs + "/airbnb/all-properties", airbnbCtr.consultarAirbnb)
-router.get(vs + "/airbnb/types", airbnbCtr.tiposPropiedades)
+router.get(vs + "/all-properties", airbnbCtr.consultarAirbnb);
+router.get(vs + "/types", airbnbCtr.tiposPropiedades);
+router.get(vs + "/reviews", airbnbCtr.consultarTop20Reviews);
 
-module.exports = router
+module.exports = router;
 
 
 
