@@ -20,6 +20,8 @@ const consultarAirbnb = async (req, res) => {
     }
 }
 
+// El controller tipos de propiedades utiliza el servicio 'consultarTipoPropiedad' para obtener el listado 
+// de los diferentes tipos de propiedades
 const tiposPropiedades = async (req, res) => {
     let respuesta = {};
     try {
@@ -37,6 +39,8 @@ const tiposPropiedades = async (req, res) => {
     }
 }
 
+// El controller consultarTop20Reviews utiliza el servicio 'reviewsTop20' para consultar las 
+// 20 propiedades de airbnb con mayor número de reseñas.
 const consultarTop20Reviews = async (req, res) => {
     let respuesta = {};
     try {
@@ -54,6 +58,8 @@ const consultarTop20Reviews = async (req, res) => {
     }
 }
 
+// El controller consultarTopCamas utiliza el servicio 'topCamas' para consultar las 
+// {nro_beds} de propiedades que tengan mayor número de camas..
 const consultarTopCamas = async (req, res) => {
     let respuesta = {};
     try {
